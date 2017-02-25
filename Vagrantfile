@@ -72,4 +72,9 @@ Vagrant.configure("2") do |config|
   # SHELL
    config.vm.provision "docker" do |d|
    end
+   config.vm.provision "shell", inline: <<-SHELL
+     apt-get update
+     apt install python-pip
+     pip install docker-compose
+   SHELL
 end
